@@ -1,0 +1,8 @@
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-muted: #a1a1a1;
+  --color-divider: #262626;
+
+  --content-width: 1100px;
+}

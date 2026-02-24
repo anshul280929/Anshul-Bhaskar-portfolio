@@ -1,26 +1,35 @@
 @import "tailwindcss";
-
+@import "../styles/tokens.css";
+/* ─── Design System ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --text: #ffffff;
+  --text-secondary: #a1a1a1;
+  --text-muted: #666666;
+  --divider: #262626;
+  --accent: #ffffff;
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), "JetBrains Mono", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-muted: #a1a1a1;
+  --color-divider: #262626;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
 }
+
+::selection {
+  background: white;
+  color: black;
+}
+
+
