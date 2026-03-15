@@ -3,6 +3,7 @@
 import { useOnboarding } from "./OnboardingProvider";
 import { useEffect } from "react";
 import Loader from "./Loader";
+import Transition from "./Transition";
 
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -13,8 +14,9 @@ import Skills from "@/components/sections/Skills";
 import Chatbot from "@/components/sections/Chatbot";
 import Contact from "@/components/sections/Contact";
 
+
 export default function ClientPage() {
-  const { stage } = useOnboarding();
+  const { stage,theme  } = useOnboarding();
   useEffect(() => {
     if (stage === "transition") {
       window.scrollTo({
@@ -23,12 +25,19 @@ export default function ClientPage() {
       });
     }
   }, [stage]);
+  useEffect(() => {
+  document.body.classList.remove("dark", "light");
+  document.body.classList.add(theme);
+}, [theme]);
 
   return (
     <>
     
       {stage === "loading" && <Loader />}
+      {stage === "transition" && <Transition />}
 
+      {stage === "complete" && (
+    <>
       <Hero />
       <About />
       <Education />
@@ -37,6 +46,8 @@ export default function ClientPage() {
       <Skills />
       <Chatbot />
       <Contact />
+    </>
+  )}
     </>
   );
 }

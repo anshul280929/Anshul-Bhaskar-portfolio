@@ -22,14 +22,20 @@
 
 html,
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
   scroll-behavior: smooth;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
-::selection {
-  background: white;
-  color: black;
+/* Dark Mode */
+body.dark {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Light Mode */
+body.light {
+  background: #ffffff;
+  color: #000000;
 }
 
 
